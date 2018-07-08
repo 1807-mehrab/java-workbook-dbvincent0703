@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 public class EvaluationService {
-
+  //<editor-fold defaultstate="collapsed" desc="1. Reverse method">
     /**
      * 1. Without using the StringBuilder or StringBuffer class, write a method
      * that reverses a String. Example: reverse("example"); -> "elpmaxe"
@@ -20,7 +20,8 @@ public class EvaluationService {
         }
         return new String(reversed);
     }
-
+     //</editor-fold>  
+  //<editor-fold defaultstate="collapsed" desc="2. Acronym method">
     /**
      * 2. Convert a phrase to its acronym. Techies love their TLA (Three Letter
      * Acronyms)! Help generate some jargon by writing a program that converts a
@@ -36,14 +37,15 @@ public class EvaluationService {
 
         //Take the first letter of the word
         String acronym = "";
-        for (int i = 0; i < result.length; i++) {
-            acronym += result[i].toString().charAt(0);
+        for (String s: result) {
+            acronym += s.charAt(0);
         }
         //Add to a string and return it;
         return acronym.toUpperCase();
 
     }
-
+        //</editor-fold>
+  //<editor-fold defaultstate="collapsed" desc="3. Triangle Class">
     /**
      * 3. Determine if a triangle is equilateral, isosceles, or scalene. An
      * equilateral triangle has all three sides the same length. An isosceles
@@ -123,7 +125,8 @@ public class EvaluationService {
         }
 
     }
-
+        //</editor-fold>
+  //<editor-fold defaultstate="collapsed" desc="4. getScrabbleScore method">
     /**
      * 4. Given a word, compute the scrabble score for that word.
      *
@@ -179,7 +182,8 @@ public class EvaluationService {
          
         return count;
     }
-
+    //</editor-fold>
+  //<editor-fold defaultstate="collapsed" desc="5. cleanPhoneNumber method">
     /**
      * 5. Clean up user-entered phone numbers so that they can be sent SMS
      * messages.
@@ -213,10 +217,18 @@ public class EvaluationService {
      * NANP-countries, only 1 is considered a valid country code.
      */
     public String cleanPhoneNumber(String string) {
-        // TODO Write an implementation for this method declaration
-        return null;
+          String[] number = string.split("[\\s+.()-]");
+          String cleanNumber = "";
+          for (String s: number) {
+              cleanNumber+= s;
+          }
+          if(cleanNumber.length()>11){
+              cleanNumber = "Invalid number (more than 11 digit)";
+          }
+          //Don't know how to check for illegal argument exception
+          return cleanNumber;
     }
-
+//</editor-fold>
     /**
      * 6. Given a phrase, count the occurrences of each word in that phrase.
      *
