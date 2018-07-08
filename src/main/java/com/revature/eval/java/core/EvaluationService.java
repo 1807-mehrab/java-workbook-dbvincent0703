@@ -95,7 +95,7 @@ public class EvaluationService {
         }
 
         public boolean isEquilateral() {
-            // TODO Write an implementation for this method declaration			
+             // TODO Write an implementation for this method declaration			
             //if all sides are equal.
             if (this.sideOne == this.sideTwo && this.sideTwo == this.sideThree) {
                 return true;
@@ -141,7 +141,43 @@ public class EvaluationService {
      */
     public int getScrabbleScore(String string) {
         // TODO Write an implementation for this method declaration
-        return 0;
+        
+         String capitalized = string.toUpperCase();
+         String one =  "AEIOULNRST";
+         String two = "DG";
+         String three = "BCMP";
+         String four = "FHVWY";
+         String five = "K";
+         String eight = "X";
+         String ten = "QZ";
+         int count = 0;
+         String temp;
+         for(int i = 0; i < capitalized.length();i++){
+             temp = ""+capitalized.charAt(i);
+             if(one.contains(temp)){
+                 count += 1;
+             }
+             else if(two.contains(temp)){
+                 count += 2;
+             }
+             else if(three.contains(temp)){
+                 count += 3;
+             }
+             else if(four.contains(temp)){
+                 count += 4;
+             }
+            else if(five.contains(temp)){
+                 count += 5;
+             }
+             else if(eight.contains(temp)){
+                 count += 8;
+             }
+             else if(ten.contains(temp)){
+                 count += 10;
+             }
+         }
+         
+        return count;
     }
 
     /**
