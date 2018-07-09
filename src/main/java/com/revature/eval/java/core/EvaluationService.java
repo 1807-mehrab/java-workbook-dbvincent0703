@@ -1,6 +1,7 @@
 package com.revature.eval.java.core;
 
 import java.time.temporal.Temporal;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -229,6 +230,7 @@ public class EvaluationService {
           return cleanNumber;
     }
 //</editor-fold>
+  //<editor-fold defaultstate="collapsed" desc="6. wordCount">
     /**
      * 6. Given a phrase, count the occurrences of each word in that phrase.
      *
@@ -240,9 +242,20 @@ public class EvaluationService {
      */
     public Map<String, Integer> wordCount(String string) {
         // TODO Write an implementation for this method declaration
-        return null;
-    }
 
+        String[] words = string.split("\\s+,");
+        Map<String, Integer> wordsMap = new HashMap<>();
+
+        for (String s : words) {
+            if (wordsMap.containsKey(s)) {
+                wordsMap.put(s, wordsMap.get(s) + 1);
+            } else {
+                wordsMap.put(s, 1);
+            }
+        }
+        return wordsMap;
+    }
+//</editor-fold>
     /**
      * 7. Implement a binary search algorithm.
      *
